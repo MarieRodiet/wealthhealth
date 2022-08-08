@@ -1,0 +1,39 @@
+.birthdate-calendar {
+  &-container {
+    padding: 10px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    &-input {
+      padding: 5px;
+      width: 100%;
+      max-width: 200px;
+      border: 1px $dark solid;
+      margin-top: 5px;
+    }
+    label {
+      font-size: 1em;
+      font-family: $secondary_font;
+    }
+    &-svg {
+      fill: $sand;
+      width: 16px;
+      position: absolute;
+      left: 165px;
+      top: 37px;
+    }
+  }
+  &-show {
+    display: block;
+  }
+  &-hide > .cld_noslotWidth .cld_container {
+    display: none;
+  }
+  .cld_noslotWidth {
+    width: 19em;
+    min-width: 15em;
+    .cld_greenHighlight {
+      background-color: $light_blue;
+    }
+  }
+}

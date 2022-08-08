@@ -1,5 +1,5 @@
-import Calendar from 'react-select-date';
-
+import BirthDateCalendar from '../components/BirthDateCalendar';
+import StartDateCalendar from '../components/StartDateCalendar';
 export default function Form() {
   return (
     <div className="form-container">
@@ -8,46 +8,30 @@ export default function Form() {
       </a>
       <h2 className="form-container-title">Create Employee</h2>
       <form className="form-container-form" action="#" id="create-employee">
-        <label className="form-container-form-label" htmlFor="first-name">
-          First Name
-        </label>
-        <input
-          placeholder="First Name"
-          className="form-container-form-input"
-          type="text"
-          id="first-name"
-        />
-
-        <label className="form-container-form-label" htmlFor="last-name">
-          Last Name
-        </label>
-        <input
-          placeholder="Last Name"
-          className="form-container-form-input"
-          type="text"
-          id="last-name"
-        />
-
-        <label className="form-container-form-label" htmlFor="date-of-birth">
-          Date of Birth
-        </label>
-        <input
-          placeholder="date of birth"
-          className="form-container-form-input"
-          id="date-of-birth"
-          type="text"
-        />
-        <Calendar onSelect={(date) => console.log(date)} />
-
-        <label className="form-container-form-label" htmlFor="start-date">
-          Start Date
-        </label>
-        <input
-          placeholder="start date"
-          className="form-container-form-input"
-          id="start-date"
-          type="text"
-        />
+        <div>
+          <label className="form-container-form-label" htmlFor="first-name">
+            First Name
+          </label>
+          <input
+            placeholder="First Name"
+            className="form-container-form-input"
+            type="text"
+            id="first-name"
+          />
+        </div>
+        <div>
+          <label className="form-container-form-label" htmlFor="last-name">
+            Last Name
+          </label>
+          <input
+            placeholder="Last Name"
+            className="form-container-form-input"
+            type="text"
+            id="last-name"
+          />
+        </div>
+        <BirthDateCalendar />
+        <StartDateCalendar />
 
         <fieldset className="address">
           <legend>Address</legend>

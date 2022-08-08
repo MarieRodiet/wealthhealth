@@ -22,7 +22,11 @@
       display: none;
     }
     &-input {
+      border: 1px $dark solid;
+      margin: 5px 0;
       padding: 5px;
+      width: 100%;
+      max-width: 200px;
     }
   }
   &-title {
