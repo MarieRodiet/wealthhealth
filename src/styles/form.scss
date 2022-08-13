@@ -33,6 +33,17 @@
     color: $light_blue;
     font-size: 2em;
   }
+  fieldset {
+    width: 100%;
+    border: none;
+    margin: 5px 0;
+    padding: 10px 5px;
+    width: 100%;
+    max-width: 200px;
+    label {
+      display: none;
+    }
+  }
   button {
     background-color: $dark;
     border: none;
