@@ -15,7 +15,7 @@ export default function BirthDateCalendar() {
   return (
     <div className="birthdate-calendar">
       <div className="birthdate-calendar-container" onClick={() => setShowCalendar(!showCalendar)}>
-        <label>Date of Birth</label>
+        <label htmlFor="date-of-birth">Date of Birth</label>
         <input
           readOnly
           value={

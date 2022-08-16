@@ -13,9 +13,9 @@ export default function StartDateCalendar() {
   const [selectedStartDate, setSelectedStartDate] = useState(new Date());
 
   return (
-    <div className="birthdate-calendar">
-      <div className="birthdate-calendar-container" onClick={() => setShowCalendar(!showCalendar)}>
-        <label>Start Date</label>
+    <div className="startdate-calendar">
+      <div className="startdate-calendar-container" onClick={() => setShowCalendar(!showCalendar)}>
+        <label htmlFor="start-date">Start Date</label>
         <input
           readOnly
           value={
@@ -25,11 +25,11 @@ export default function StartDateCalendar() {
             '-' +
             selectedStartDate?.getFullYear()
           }
-          className="birthdate-calendar-container-input"
-          id="date-of-birth"
+          className="startdate-calendar-container-input"
+          id="start-date"
           type="text"
         />
-        <CalendarSvg className="birthdate-calendar-container-svg" />
+        <CalendarSvg className="startdate-calendar-container-svg" />
       </div>
       <div style={{ display: showCalendar ? 'block' : 'none' }}>
         <Calendar

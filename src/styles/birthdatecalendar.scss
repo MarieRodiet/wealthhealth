@@ -1,25 +1,28 @@
-.birthdate-calendar {
+.birthdate-calendar,
+.startdate-calendar {
   &-container {
     padding: 10px 0;
     position: relative;
     display: flex;
     flex-direction: column;
     &-input {
-      padding: 5px;
+      padding: 7px;
       width: 100%;
-      max-width: 200px;
+      max-width: 220px;
       border: 1px $dark solid;
       margin-top: 5px;
+      color: $dark;
     }
     label {
-      font-size: 1em;
+      width: 220px;
+      font-size: 0.8em;
       font-family: $secondary_font;
     }
     &-svg {
-      fill: $sand;
+      fill: darken($sand, 20%);
       width: 16px;
       position: absolute;
-      left: 165px;
+      left: 190px;
       top: 37px;
     }
   }
@@ -30,8 +33,9 @@
     display: none;
   }
   .cld_noslotWidth {
-    width: 19em;
-    min-width: 15em;
+    width: 100%;
+    max-width: 220px;
+    min-width: 220px;
     .cld_greenHighlight {
       background-color: $light_blue;
     }
