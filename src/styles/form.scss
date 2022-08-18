@@ -6,7 +6,12 @@
   padding: 30px;
   margin-top: 50px;
   background-color: white;
+  opacity: 85%;
   border-radius: 5px;
+  @media only screen and (min-width: 769px) {
+    padding: 40px;
+    margin-top: 60px;
+  }
   &-employeeLink {
     text-decoration: none;
     color: darken($sand, 20%);
@@ -14,6 +19,13 @@
     padding: 5px 0;
     font-size: 1em;
     font-weight: 600;
+    @media only screen and (min-width: 769px) {
+      font-size: 1.2em;
+    }
+  }
+  &-employeeLink:hover {
+    font-weight: 500;
+    color: darken($sand, 10%);
   }
   &-form {
     padding: 25px 0;
@@ -27,6 +39,9 @@
     color: $dark;
     font-size: 2em;
     padding-top: 10px;
+    @media only screen and (min-width: 769px) {
+      font-size: 2.2em;
+    }
   }
   fieldset {
     width: 100%;
@@ -36,8 +51,17 @@
     width: 100%;
     max-width: 220px;
     position: relative;
+    @media only screen and (min-width: 769px) {
+      max-width: 300px;
+    }
     legend {
       text-align: center;
+      font-size: 1em;
+      @media only screen and (min-width: 769px) {
+        padding-top: 10px;
+        text-align: start;
+        font-size: 1.2em;
+      }
     }
   }
   .hide {
@@ -49,9 +73,21 @@
     padding: 7px;
     width: 100%;
     max-width: 220px;
+    @media only screen and (min-width: 769px) {
+      max-width: 300px;
+      padding: 9px;
+    }
   }
-  ::placeholder {
+  ::placeholder,
+  .department::placeholder {
     color: $dark;
+    font-size: 1em;
+    @media only screen and (min-width: 769px) {
+      font-size: 1.2em;
+    }
+  }
+  .department {
+    margin-top: 25px;
   }
   button {
     background-color: $dark;
@@ -61,7 +97,10 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 1em;
     border-radius: 5px;
+    @media only screen and (min-width: 769px) {
+      font-size: 1.2em;
+    }
   }
 }

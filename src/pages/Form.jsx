@@ -1,13 +1,19 @@
 import BirthDateCalendar from '../components/BirthDateCalendar';
 import StartDateCalendar from '../components/StartDateCalendar';
+import { Link } from 'react-router-dom';
+
 export default function Form() {
   return (
     <main className="form-container">
-      <a className="form-container-employeeLink" href="employee-list.html">
+      <Link className="form-container-employeeLink" to="/employeelist" replace="true">
         View Current Employees
-      </a>
+      </Link>
       <h1 className="form-container-title">Create Employee</h1>
-      <form className="form-container-form" action="#" id="create-employee">
+      <form
+        className="form-container-form"
+        action="#"
+        id="create-employee"
+        onSubmit={(event) => console.log(event)}>
         <div>
           <label className="form-container-form-label" htmlFor="first-name">
             First Name
@@ -41,12 +47,12 @@ export default function Form() {
           </label>
           <input className="input" list="states-list" id="state" name="state" placeholder="state" />
           <datalist id="states-list">
-            <option value="OR">OR</option>
-            <option value="FL">FL</option>
-            <option value="WA">WA</option>
-            <option value="CA">CA</option>
-            <option value="NV">NV</option>
-            <option value="OM">OM</option>
+            <option value="OR" />
+            <option value="FL" />
+            <option value="WA" />
+            <option value="CA" />
+            <option value="NV" />
+            <option value="OM" />
           </datalist>
 
           <label className="hide" htmlFor="zip-code">
@@ -54,23 +60,22 @@ export default function Form() {
           </label>
           <input className="input" id="zip-code" type="number" placeholder="zipcode" />
         </fieldset>
-
         <label className="hide" htmlFor="department">
           Department
         </label>
         <input
-          className="input"
+          className="input department"
           list="department-list"
           id="department"
           name="department"
           placeholder="Departement"
         />
         <datalist id="department-list">
-          <option value="Sales">Sales</option>
-          <option value="Marketing">Marketing</option>
-          <option value="Engineering">Engineering</option>
-          <option value="Human Resources">Human Resources</option>
-          <option value="Legal">Legal</option>
+          <option value="Sales" />
+          <option value="Marketing" />
+          <option value="Engineering" />
+          <option value="Human Resources" />
+          <option value="Legal" />
         </datalist>
       </form>
 

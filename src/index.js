@@ -3,11 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './styles/main.scss';
 import Form from './pages/Form.jsx';
 import reportWebVitals from './reportWebVitals';
+import EmployeeList from './pages/EmployeeList.jsx';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Error from './pages/Error';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Form />
+    {/* <Form /> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Form />} />
+        <Route path="employeelist" element={<EmployeeList />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

@@ -12,10 +12,21 @@
       border: 1px $dark solid;
       margin-top: 5px;
       color: $dark;
+      @media only screen and (min-width: 769px) {
+        max-width: 300px;
+        padding: 9px;
+      }
+    }
+    &-input,
+    ::placeholder {
+      font-size: 0.8em;
+      @media only screen and (min-width: 769px) {
+        font-size: 1em;
+      }
     }
     label {
       width: 220px;
-      font-size: 0.8em;
+      font-size: 0.9em;
       font-family: $secondary_font;
     }
     &-svg {
@@ -24,6 +35,9 @@
       position: absolute;
       left: 190px;
       top: 37px;
+      @media only screen and (min-width: 769px) {
+        left: 270px;
+      }
     }
   }
   &-show {
