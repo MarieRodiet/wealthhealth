@@ -1,6 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { employeeListReducer } from './employeeSlice.js';
+import { employeeListReducer } from './employeesListSlice.js';
+import { newEmployeeReducer } from './newEmployeeSlice.js';
 
 export const store = configureStore({
-  reducer: employeeListReducer
+  reducer: {
+    employeeList: employeeListReducer.reducer,
+    newEmployee: newEmployeeReducer.reducer
+  }
 });

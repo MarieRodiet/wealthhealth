@@ -1,12 +1,14 @@
 import BirthDateCalendar from '../components/BirthDateCalendar';
 import StartDateCalendar from '../components/StartDateCalendar';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addEmployee, employeesState } from '../features/employeeSlice';
+import { addInputData } from '../features/newEmployeeSlice';
+import { addEmployee, employeesState } from '../features/employeesListSlice';
 
 export default function Form() {
   const dispatch = useDispatch();
+  const { first_name } = useSelector(employeesState);
   const [employeeInfo, setEmployeeInfo] = useState({
     first_name: '',
     last_name: '',
@@ -19,23 +21,17 @@ export default function Form() {
     department: ''
   });
 
-  useEffect(() => {
-    console.log('inside use Effect');
-  });
-
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
+    console.log(e.target.name);
     setEmployeeInfo({ ...employeeInfo, [e.target.name]: e.target.value });
+    dispatch(addInputData(employeeInfo));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     //if verification of input succeeds, proceed. else, show an error
-    setEmployeeInfo(employeeInfo);
     dispatch(addEmployee(employeeInfo));
-    const { employeeListState } = useSelector(employeesState);
-    if (employeeListState === undefined) {
-      console.log('undefined');
-    } else console.log(employeeListState);
+    console.log(first_name);
   };
   return (
     <main className="form-container">
@@ -54,7 +50,7 @@ export default function Form() {
             type="text"
             id="first-name"
             name="first_name"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <div>
@@ -67,10 +63,11 @@ export default function Form() {
             type="text"
             id="last-name"
             name="last_name"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </div>
         <BirthDateCalendar />
+
         <StartDateCalendar />
 
         <fieldset className="address">
@@ -85,7 +82,7 @@ export default function Form() {
             type="text"
             placeholder="street"
             name="street"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
 
           <label className="hide" htmlFor="city">
@@ -97,7 +94,7 @@ export default function Form() {
             type="text"
             placeholder="city"
             name="city"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
 
           <label className="hide" htmlFor="state">
@@ -109,7 +106,7 @@ export default function Form() {
             id="state"
             placeholder="state"
             name="state"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
           <datalist id="states-list">
             <option value="OR" />
@@ -129,7 +126,7 @@ export default function Form() {
             type="number"
             placeholder="zipcode"
             name="zipcode"
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </fieldset>
         <label className="hide" htmlFor="department">
@@ -141,7 +138,7 @@ export default function Form() {
           id="department"
           name="department"
           placeholder="Departement"
-          onChange={handleChange}
+          onChange={handleInputChange}
         />
         <datalist id="department-list">
           <option value="Sales" />
