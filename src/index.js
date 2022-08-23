@@ -6,18 +6,22 @@ import reportWebVitals from './reportWebVitals';
 import EmployeeList from './pages/EmployeeList.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Error from './pages/Error';
+import { Provider } from 'react-redux';
+import { store } from './features/store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <Form /> */}
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Form />} />
-        <Route path="employeelist" element={<EmployeeList />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Form />} />
+          <Route path="employeelist" element={<EmployeeList />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 

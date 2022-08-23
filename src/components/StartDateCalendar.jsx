@@ -1,6 +1,6 @@
 import Calendar from 'react-select-date';
 import { ReactComponent as CalendarSvg } from './../assets/calendar-solid.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function addZero(num) {
   return num > 9 ? num : '0' + num;
@@ -11,7 +11,9 @@ export default function StartDateCalendar() {
 
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedStartDate, setSelectedStartDate] = useState(new Date());
-
+  useEffect(() => {
+    setShowCalendar(false);
+  }, [selectedStartDate]);
   return (
     <div className="startdate-calendar">
       <div className="startdate-calendar-container" onClick={() => setShowCalendar(!showCalendar)}>
