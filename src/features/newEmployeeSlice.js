@@ -3,45 +3,45 @@ import { createSlice } from '@reduxjs/toolkit';
 export const newEmployeeReducer = createSlice({
   name: 'newEmployee',
   initialState: {
-    first_name: 'Marie',
-    last_name: 'Moore',
-    birth_date: 'asdf',
-    start_date: 'asdf',
-    street: 'asdf',
-    city: 'adfd',
-    state: 'asdf',
-    zipcode: 'asdf',
-    department: 'asdf'
+    FirstName: '',
+    LastName: '',
+    BirthDate: '',
+    StartDate: '',
+    Street: '',
+    City: '',
+    State: '',
+    Zipcode: '',
+    Department: ''
   },
   reducers: {
     addStartDate: (state, action) => {
-      state.start_date = action.payload;
+      state.StartDate = action.payload;
       return state;
     },
     addBirthDate: (state, action) => {
-      state.birth_date = action.payload;
+      state.BirthDate = action.payload;
       return state;
     },
     addInputData: (state, action) => {
-      (state.first_name = action.payload.first_name),
-        (state.last_name = action.payload.last_name),
-        (state.street = action.payload.street),
-        (state.city = action.payload.city),
-        (state.zipcode = action.payload.zipcode),
-        (state.department = action.payload.department);
-      console.log('inside addInputData');
+      (state.FirstName = action.payload.first_name),
+        (state.LastName = action.payload.last_name),
+        (state.Street = action.payload.street),
+        (state.City = action.payload.city),
+        (state.Zipcode = action.payload.zipcode),
+        (state.State = action.payload.state),
+        (state.Department = action.payload.department);
       return state;
     },
     clearNewEmployee: (state) => {
-      (state.first_name = ''),
-        (state.last_name = ''),
-        (state.birth_date = ''),
-        (state.start_date = ''),
-        (state.street = ''),
-        (state.city = ''),
-        (state.state = ''),
-        (state.zipcode = ''),
-        (state.department = '');
+      (state.FirstName = ''),
+        (state.LastName = ''),
+        (state.BirthDate = ''),
+        (state.StartDate = ''),
+        (state.Street = ''),
+        (state.City = ''),
+        (state.State = ''),
+        (state.Zipcode = ''),
+        (state.Department = '');
       return state;
     }
   }

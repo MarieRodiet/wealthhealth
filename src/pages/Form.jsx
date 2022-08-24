@@ -1,19 +1,98 @@
 import BirthDateCalendar from '../components/BirthDateCalendar';
 import StartDateCalendar from '../components/StartDateCalendar';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addInputData } from '../features/newEmployeeSlice';
-import { addEmployee, employeesState } from '../features/employeesListSlice';
+import { addInputData, clearNewEmployee, newEmployeeState } from '../features/newEmployeeSlice';
+import { addEmployee } from '../features/employeesListSlice';
 
 export default function Form() {
+  const [isComplete, setIsComplete] = useState(false);
   const dispatch = useDispatch();
-  const { first_name } = useSelector(employeesState);
+  const states = [
+    'AL',
+    'AK',
+    'AS',
+    'AZ',
+    'AR',
+    'CA',
+    'CO',
+    'CT',
+    'DE',
+    'DC',
+    'FM',
+    'FL',
+    'GA',
+    'GU',
+    'HI',
+    'ID',
+    'IL',
+    'IN',
+    'IA',
+    'KS',
+    'KY',
+    'LA',
+    'ME',
+    'MH',
+    'MD',
+    'MA',
+    'MI',
+    'MN',
+    'MS',
+    'MO',
+    'MT',
+    'NE',
+    'NV',
+    'NH',
+    'NJ',
+    'NM',
+    'NY',
+    'NC',
+    'ND',
+    'MP',
+    'OH',
+    'OK',
+    'OR',
+    'PW',
+    'PA',
+    'PR',
+    'RI',
+    'SC',
+    'SD',
+    'TN',
+    'TX',
+    'UT',
+    'VT',
+    'VI',
+    'VA',
+    'WA',
+    'WV',
+    'WI',
+    'WY'
+  ];
+  const departments = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
+  const { FirstName, LastName, Street, City, State, Zipcode, Department, StartDate, BirthDate } =
+    useSelector(newEmployeeState);
+  useEffect(() => {
+    if (
+      FirstName !== '' &&
+      LastName !== '' &&
+      Street !== '' &&
+      City !== '' &&
+      State !== '' &&
+      Zipcode !== '' &&
+      Department !== '' &&
+      StartDate !== '' &&
+      BirthDate !== ''
+    ) {
+      setIsComplete(true);
+    } else {
+      setIsComplete(false);
+    }
+  }, []);
   const [employeeInfo, setEmployeeInfo] = useState({
     first_name: '',
     last_name: '',
-    birth_date: '',
-    start_date: '',
     street: '',
     city: '',
     state: '',
@@ -22,17 +101,35 @@ export default function Form() {
   });
 
   const handleInputChange = (e) => {
-    console.log(e.target.name);
     setEmployeeInfo({ ...employeeInfo, [e.target.name]: e.target.value });
     dispatch(addInputData(employeeInfo));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    //if verification of input succeeds, proceed. else, show an error
-    dispatch(addEmployee(employeeInfo));
-    console.log(first_name);
+    if (isComplete) {
+      {
+        dispatch(
+          addEmployee({
+            FirstName,
+            LastName,
+            Street,
+            City,
+            State,
+            Zipcode,
+            Department,
+            StartDate,
+            BirthDate
+          })
+        );
+        dispatch(clearNewEmployee);
+      }
+    } else console.log('some info missing');
   };
+
+  const currentDate =
+    new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
+
   return (
     <main className="form-container">
       <Link className="form-container-employeeLink" to="/employeelist" replace="true">
@@ -45,6 +142,7 @@ export default function Form() {
             First Name
           </label>
           <input
+            required
             placeholder="First Name"
             className="input"
             type="text"
@@ -58,6 +156,7 @@ export default function Form() {
             Last Name
           </label>
           <input
+            required
             placeholder="Last Name"
             className="input"
             type="text"
@@ -66,10 +165,27 @@ export default function Form() {
             onChange={handleInputChange}
           />
         </div>
-        <BirthDateCalendar />
+        <BirthDateCalendar currentDate={currentDate} />
+        <StartDateCalendar currentDate={currentDate} />
 
-        <StartDateCalendar />
-
+        <label className="hide" htmlFor="department">
+          Department
+        </label>
+        <input
+          required
+          className="input department"
+          list="department-list"
+          type="text"
+          id="department"
+          name="department"
+          placeholder="Choose Departement"
+          onChange={handleInputChange}
+        />
+        <datalist id="department-list">
+          {departments.map((item) => (
+            <option key={item} value={item} />
+          ))}
+        </datalist>
         <fieldset className="address">
           <legend>Address</legend>
 
@@ -77,10 +193,11 @@ export default function Form() {
             Street
           </label>
           <input
+            required
             className="input"
             id="street"
             type="text"
-            placeholder="street"
+            placeholder="Street"
             name="street"
             onChange={handleInputChange}
           />
@@ -89,10 +206,11 @@ export default function Form() {
             City
           </label>
           <input
+            required
             className="input"
             id="city"
             type="text"
-            placeholder="city"
+            placeholder="City"
             name="city"
             onChange={handleInputChange}
           />
@@ -101,52 +219,35 @@ export default function Form() {
             State
           </label>
           <input
+            required
             className="input"
             list="states-list"
             id="state"
-            placeholder="state"
+            type="text"
+            placeholder="Choose State"
             name="state"
             onChange={handleInputChange}
           />
           <datalist id="states-list">
-            <option value="OR" />
-            <option value="FL" />
-            <option value="WA" />
-            <option value="CA" />
-            <option value="NV" />
-            <option value="OM" />
+            {states.map((item) => (
+              <option key={item} value={item} />
+            ))}
           </datalist>
 
           <label className="hide" htmlFor="zip-code">
             Zip Code
           </label>
           <input
+            required
             className="input"
             id="zip-code"
             type="number"
-            placeholder="zipcode"
+            placeholder="Zipcode"
             name="zipcode"
             onChange={handleInputChange}
           />
         </fieldset>
-        <label className="hide" htmlFor="department">
-          Department
-        </label>
-        <input
-          className="input department"
-          list="department-list"
-          id="department"
-          name="department"
-          placeholder="Departement"
-          onChange={handleInputChange}
-        />
-        <datalist id="department-list">
-          <option value="Sales" />
-          <option value="Marketing" />
-          <option value="Engineering" />
-          <option value="Human Resources" />
-          <option value="Legal" />
-        </datalist>
+
         <button type="submit">Save</button>
       </form>
     </main>

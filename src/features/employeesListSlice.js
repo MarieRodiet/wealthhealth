@@ -1,19 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export const employeeListReducer = createSlice({
-  name: 'employeeList',
+export const employeesListReducer = createSlice({
+  name: 'employeesList',
   initialState: [],
   reducers: {
     clearEmployeeList: (state) => {
-      state.employeeList = [];
+      state.employeesList = [];
     },
     addEmployee: (state, action) => {
       state.push(action.payload);
-      console.log('inside addEmployee');
       return state;
     }
   }
 });
 
-export const { addEmployee } = employeeListReducer.actions;
-export const employeesState = (state) => state.employeeList;
+export const { addEmployee } = employeesListReducer.actions;
+export const employeesState = (state) => state.employeesList;
