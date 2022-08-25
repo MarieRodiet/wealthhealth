@@ -1,5 +1,13 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { employeesState } from '../features/employeesListSlice';
+import { useReactTable } from '@tanstack/react-table';
 export default function EmployeeList() {
+  const { employeesList } = useSelector(employeesState);
+  console.log(employeesList);
+  const table = useReactTable();
+  console.log(table);
+
   return (
     <div>
       <h1>Current Employees</h1>

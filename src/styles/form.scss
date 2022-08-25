@@ -34,6 +34,39 @@
     &-label {
       display: none;
     }
+    &-btn {
+      background-color: $dark;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 1em;
+      border-radius: 5px;
+      @media only screen and (min-width: 769px) {
+        font-size: 1.2em;
+      }
+    }
+    &-btn:hover {
+      cursor: pointer;
+      outline: none;
+      background-color: lighten($dark, 10%);
+      @include keyframes(hover) {
+        0% {
+          transform: scale(1);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+          font-weight: 300;
+        }
+
+        100% {
+          transform: scale(1.02);
+          box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+          font-weight: 400;
+        }
+      }
+      @include animate(hover, 0.8s, infinite, alternate-reverse);
+    }
   }
   &-title {
     color: $dark;
@@ -88,19 +121,5 @@
   }
   .department {
     margin-top: 25px;
-  }
-  button {
-    background-color: $dark;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1em;
-    border-radius: 5px;
-    @media only screen and (min-width: 769px) {
-      font-size: 1.2em;
-    }
   }
 }

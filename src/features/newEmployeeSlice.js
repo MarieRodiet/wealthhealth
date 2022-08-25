@@ -33,10 +33,11 @@ export const newEmployeeReducer = createSlice({
       return state;
     },
     clearNewEmployee: (state) => {
+      console.log('clear New Employee');
       (state.FirstName = ''),
         (state.LastName = ''),
-        (state.BirthDate = ''),
-        (state.StartDate = ''),
+        // (state.BirthDate = ''),
+        // (state.StartDate = ''),
         (state.Street = ''),
         (state.City = ''),
         (state.State = ''),

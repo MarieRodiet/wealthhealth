@@ -15,4 +15,4 @@ export const employeesListReducer = createSlice({
 });
 
 export const { addEmployee } = employeesListReducer.actions;
-export const employeesState = (state) => state.employeesList;
+export const employeesState = (state) => state;

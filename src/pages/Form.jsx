@@ -1,13 +1,13 @@
 import BirthDateCalendar from '../components/BirthDateCalendar';
 import StartDateCalendar from '../components/StartDateCalendar';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addInputData, clearNewEmployee, newEmployeeState } from '../features/newEmployeeSlice';
+import { addInputData, newEmployeeState, clearNewEmployee } from '../features/newEmployeeSlice';
 import { addEmployee } from '../features/employeesListSlice';
+import Modal from '../components/Modal';
 
 export default function Form() {
-  const [isComplete, setIsComplete] = useState(false);
   const dispatch = useDispatch();
   const states = [
     'AL',
@@ -73,23 +73,6 @@ export default function Form() {
   const departments = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
   const { FirstName, LastName, Street, City, State, Zipcode, Department, StartDate, BirthDate } =
     useSelector(newEmployeeState);
-  useEffect(() => {
-    if (
-      FirstName !== '' &&
-      LastName !== '' &&
-      Street !== '' &&
-      City !== '' &&
-      State !== '' &&
-      Zipcode !== '' &&
-      Department !== '' &&
-      StartDate !== '' &&
-      BirthDate !== ''
-    ) {
-      setIsComplete(true);
-    } else {
-      setIsComplete(false);
-    }
-  }, []);
   const [employeeInfo, setEmployeeInfo] = useState({
     first_name: '',
     last_name: '',
@@ -99,6 +82,7 @@ export default function Form() {
     zipcode: '',
     department: ''
   });
+  const [isCreated, setIsCreated] = useState(false);
 
   const handleInputChange = (e) => {
     setEmployeeInfo({ ...employeeInfo, [e.target.name]: e.target.value });
@@ -107,24 +91,21 @@ export default function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (isComplete) {
-      {
-        dispatch(
-          addEmployee({
-            FirstName,
-            LastName,
-            Street,
-            City,
-            State,
-            Zipcode,
-            Department,
-            StartDate,
-            BirthDate
-          })
-        );
-        dispatch(clearNewEmployee);
-      }
-    } else console.log('some info missing');
+    dispatch(
+      addEmployee({
+        FirstName,
+        LastName,
+        Street,
+        City,
+        State,
+        Zipcode,
+        Department,
+        StartDate,
+        BirthDate
+      })
+    );
+    setIsCreated(true);
+    dispatch(clearNewEmployee());
   };
 
   const currentDate =
@@ -248,8 +229,11 @@ export default function Form() {
           />
         </fieldset>
 
-        <button type="submit">Save</button>
+        <button type="submit" className="form-container-form-btn">
+          Save
+        </button>
       </form>
+      {isCreated ? <Modal /> : null}
     </main>
   );
 }
