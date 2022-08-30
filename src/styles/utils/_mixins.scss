@@ -7,3 +7,15 @@
     @content;
   }
 }
+
+@mixin container() {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  margin-top: 50px;
+  background-color: white;
+  opacity: 85%;
+  border-radius: 5px;
+}
