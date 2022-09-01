@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ReactTable from './ReactTable';
+import Table from './Table';
 import { useState, useEffect, useMemo } from 'react';
 import { employeesState } from '../features/employeesListSlice';
-import Search from '../components/Search';
 
 export default function EmployeeList() {
   const { employeesList } = useSelector(employeesState);
@@ -104,8 +103,8 @@ export default function EmployeeList() {
     <div className="listContainer">
       {data.length > 0 ? (
         <div className="listContainer-content">
-          <Search />
-          <ReactTable columns={columns} data={data} />
+          <h1>Employees</h1>
+          <Table columns={columns} data={data} />
         </div>
       ) : (
         <h1 className="listContainer-noEmployeesMsg">There are no employees registered</h1>
