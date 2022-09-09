@@ -1,74 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Table from './Table';
-import { useState, useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { employeesState } from '../features/employeesListSlice';
+// import { list } from '../mock/mockedData';
 
 export default function EmployeeList() {
   const { employeesList } = useSelector(employeesState);
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const list = [
-      {
-        FirstName: 'Marie',
-        LastName: 'Moore',
-        BirthDate: '07/08/1989',
-        StartDate: '01/09/2022',
-        Street: '7 Route de Dammartin',
-        City: 'Mortcerf',
-        State: 'FL',
-        Zipcode: '0123',
-        Department: 'Marketing'
-      },
-      {
-        FirstName: 'Dominique',
-        LastName: 'Rodiet',
-        BirthDate: '07/08/1959',
-        StartDate: '01/09/2023',
-        Street: 'Hello',
-        City: 'Saint',
-        State: 'WN',
-        Zipcode: '9876',
-        Department: 'Sales'
-      },
-      {
-        FirstName: 'Louis',
-        LastName: 'Someone',
-        BirthDate: '07/08/1909',
-        StartDate: '02/09/2023',
-        Street: 'Street',
-        City: 'Paris',
-        State: 'AZ',
-        Zipcode: '0000',
-        Department: 'Consulting'
-      }
-    ];
-    console.log(employeesList);
-    setData(list);
-  }, []);
 
   const columns = useMemo(() => [
     {
       Header: 'Employees',
       columns: [
         {
-          Header: 'FirstName',
+          Header: 'First Name',
           accessor: 'FirstName',
           Cell: ({ cell: { value } }) => value || '-'
         },
         {
-          Header: 'LastName',
+          Header: 'Last Name',
           accessor: 'LastName',
           Cell: ({ cell: { value } }) => value || '-'
         },
         {
-          Header: 'BirthDate',
+          Header: 'Birth Date',
           accessor: 'BirthDate',
           Cell: ({ cell: { value } }) => value || '-'
         },
         {
-          Header: 'StartDate',
+          Header: 'Start Date',
           accessor: 'StartDate',
           Cell: ({ cell: { value } }) => value || '-'
         },
@@ -101,10 +61,10 @@ export default function EmployeeList() {
   ]);
   return (
     <div className="listContainer">
-      {data.length > 0 ? (
+      {employeesList ? (
         <div className="listContainer-content">
           <h1>Employees</h1>
-          <Table columns={columns} data={data} />
+          <Table columns={columns} data={employeesList} />
         </div>
       ) : (
         <h1 className="listContainer-noEmployeesMsg">There are no employees registered</h1>

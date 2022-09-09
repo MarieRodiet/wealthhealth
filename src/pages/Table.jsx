@@ -19,12 +19,12 @@ export default function Table({ columns, data }) {
       <table {...getTableProps()} className="listContainer-content-table">
         <thead className="listContainer-content-table-header">
           {headerGroups.map((headerGroup, i) => (
-            <tr key={i + '0'} {...headerGroup.getHeaderGroupProps()}>
+            <tr key={i + 'tr'} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column, i) => {
                 if ({ ...column }['Header'] !== 'Employees') {
                   return (
                     <>
-                      <th key={i + '1'} {...column.getHeaderProps(column.getSortByToggleProps())}>
+                      <th key={i + 'th'} {...column.getHeaderProps(column.getSortByToggleProps())}>
                         {column.render('Header')}
                         <ArrowSvg />
                       </th>
@@ -39,10 +39,10 @@ export default function Table({ columns, data }) {
           {rows.map((row, i) => {
             prepareRow(row);
             return (
-              <tr key={i++} {...row.getRowProps()}>
-                {row.cells.map((cell) => {
+              <tr key={i + 'tbtr'} {...row.getRowProps()}>
+                {row.cells.map((cell, i) => {
                   const value = { ...cell }['value'];
-                  return <td key={value}>{value}</td>;
+                  return <td key={i + 'td'}>{value}</td>;
                 })}
               </tr>
             );

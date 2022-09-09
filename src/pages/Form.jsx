@@ -1,111 +1,20 @@
-import BirthDateCalendar from '../components/BirthDateCalendar';
-import StartDateCalendar from '../components/StartDateCalendar';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addInputData, newEmployeeState, clearNewEmployee } from '../features/newEmployeeSlice';
+import { useDispatch } from 'react-redux';
 import { addEmployee } from '../features/employeesListSlice';
 import Modal from '../components/Modal';
+import { states, departments } from '../mock/mockedData';
+import { useForm } from 'react-hook-form';
+import Calendar from '../components/Calendar';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const states = [
-    'AL',
-    'AK',
-    'AS',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'DC',
-    'FM',
-    'FL',
-    'GA',
-    'GU',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MH',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'MP',
-    'OH',
-    'OK',
-    'OR',
-    'PW',
-    'PA',
-    'PR',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VI',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY'
-  ];
-  const departments = ['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal'];
-  const { FirstName, LastName, Street, City, State, Zipcode, Department, StartDate, BirthDate } =
-    useSelector(newEmployeeState);
-  const [employeeInfo, setEmployeeInfo] = useState({
-    first_name: '',
-    last_name: '',
-    street: '',
-    city: '',
-    state: '',
-    zipcode: '',
-    department: ''
-  });
   const [isCreated, setIsCreated] = useState(false);
+  const { register, handleSubmit, setValue } = useForm();
 
-  const handleInputChange = (e) => {
-    setEmployeeInfo({ ...employeeInfo, [e.target.name]: e.target.value });
-    dispatch(addInputData(employeeInfo));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(
-      addEmployee({
-        FirstName,
-        LastName,
-        Street,
-        City,
-        State,
-        Zipcode,
-        Department,
-        StartDate,
-        BirthDate
-      })
-    );
+  const onSubmit = (data) => {
+    dispatch(addEmployee(data));
     setIsCreated(true);
-    dispatch(clearNewEmployee());
   };
 
   const currentDate =
@@ -117,9 +26,13 @@ export default function Form() {
         View Current Employees
       </Link>
       <h1 className="form-container-title">Create Employee</h1>
-      <form className="form-container-form" action="#" id="create-employee" onSubmit={handleSubmit}>
+      <form
+        className="form-container-form"
+        action="#"
+        id="create-employee"
+        onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <label className="form-container-form-label" htmlFor="first-name">
+          <label className="form-container-form-label" htmlFor="FirstName">
             First Name
           </label>
           <input
@@ -127,9 +40,9 @@ export default function Form() {
             placeholder="First Name"
             className="input"
             type="text"
-            id="first-name"
-            name="first_name"
-            onChange={handleInputChange}
+            id="FirstName"
+            name="FirstName"
+            {...register('FirstName', { required: true }, { pattern: /^[A-Za-z]+$/i })}
           />
         </div>
         <div>
@@ -141,15 +54,16 @@ export default function Form() {
             placeholder="Last Name"
             className="input"
             type="text"
-            id="last-name"
-            name="last_name"
-            onChange={handleInputChange}
+            id="LastName"
+            name="LastName"
+            {...register('LastName', { required: true }, { pattern: /^[A-Za-z]+$/i })}
           />
         </div>
-        <BirthDateCalendar currentDate={currentDate} />
-        <StartDateCalendar currentDate={currentDate} />
 
-        <label className="hide" htmlFor="department">
+        <Calendar currentDate={currentDate} setValue={setValue} dateType={'BirthDate'} />
+        <Calendar currentDate={currentDate} setValue={setValue} dateType={'StartDate'} />
+
+        <label className="hide" htmlFor="Department">
           Department
         </label>
         <input
@@ -157,10 +71,10 @@ export default function Form() {
           className="input department"
           list="department-list"
           type="text"
-          id="department"
-          name="department"
+          id="Department"
+          name="Department"
           placeholder="Choose Departement"
-          onChange={handleInputChange}
+          {...register('Department', { required: true })}
         />
         <datalist id="department-list">
           {departments.map((item) => (
@@ -170,44 +84,44 @@ export default function Form() {
         <fieldset className="address">
           <legend>Address</legend>
 
-          <label className="hide" htmlFor="street">
+          <label className="hide" htmlFor="Street">
             Street
           </label>
           <input
             required
             className="input"
-            id="street"
+            id="Street"
             type="text"
             placeholder="Street"
-            name="street"
-            onChange={handleInputChange}
+            name="Street"
+            {...register('Street', { required: true })}
           />
 
-          <label className="hide" htmlFor="city">
+          <label className="hide" htmlFor="City">
             City
           </label>
           <input
             required
             className="input"
-            id="city"
+            id="City"
             type="text"
             placeholder="City"
-            name="city"
-            onChange={handleInputChange}
+            name="City"
+            {...register('City', { required: true, maxLength: 20 })}
           />
 
-          <label className="hide" htmlFor="state">
+          <label className="hide" htmlFor="State">
             State
           </label>
           <input
             required
             className="input"
             list="states-list"
-            id="state"
+            id="State"
             type="text"
             placeholder="Choose State"
-            name="state"
-            onChange={handleInputChange}
+            name="State"
+            {...register('State', { required: true })}
           />
           <datalist id="states-list">
             {states.map((item) => (
@@ -215,17 +129,17 @@ export default function Form() {
             ))}
           </datalist>
 
-          <label className="hide" htmlFor="zip-code">
+          <label className="hide" htmlFor="Zipcode">
             Zip Code
           </label>
           <input
             required
             className="input"
-            id="zip-code"
+            id="Zipcode"
             type="number"
             placeholder="Zipcode"
-            name="zipcode"
-            onChange={handleInputChange}
+            name="Zipcode"
+            {...register('Zipcode', { required: true }, { min: 1000, max: 99999 })}
           />
         </fieldset>
 
@@ -233,7 +147,7 @@ export default function Form() {
           Save
         </button>
       </form>
-      {isCreated ? <Modal /> : null}
+      {isCreated ? <Modal text={'Employee Created!'} /> : null}
     </main>
   );
 }
