@@ -1,18 +1,17 @@
 {
   "files": {
-    "main.css": "/wealthhealth/static/css/main.dc9b0326.css",
-    "main.js": "/wealthhealth/static/js/main.2c9d3218.js",
-    "static/js/787.ef6b2400.chunk.js": "/wealthhealth/static/js/787.ef6b2400.chunk.js",
+    "main.css": "/wealthhealth/static/css/main.60220847.css",
+    "main.js": "/wealthhealth/static/js/main.341b90fa.js",
     "static/media/kyle-sudu-PVKn9G3XICQ-unsplash.jpg": "/wealthhealth/static/media/kyle-sudu-PVKn9G3XICQ-unsplash.e88a160c89a59c9c8929.jpg",
     "index.html": "/wealthhealth/index.html",
     "static/media/circle-xmark-solid.svg": "/wealthhealth/static/media/circle-xmark-solid.850a44cce7abd9ff6091005f1bf2e96e.svg",
+    "static/media/up-down-solid.svg": "/wealthhealth/static/media/up-down-solid.dd91156eb8fa5348018f0d2b4593b8c2.svg",
     "static/media/calendar-solid.svg": "/wealthhealth/static/media/calendar-solid.897182f286746c3a33af7927a94b71f4.svg",
-    "main.dc9b0326.css.map": "/wealthhealth/static/css/main.dc9b0326.css.map",
-    "main.2c9d3218.js.map": "/wealthhealth/static/js/main.2c9d3218.js.map",
-    "787.ef6b2400.chunk.js.map": "/wealthhealth/static/js/787.ef6b2400.chunk.js.map"
+    "main.60220847.css.map": "/wealthhealth/static/css/main.60220847.css.map",
+    "main.341b90fa.js.map": "/wealthhealth/static/js/main.341b90fa.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc9b0326.css",
-    "static/js/main.2c9d3218.js"
+    "static/css/main.60220847.css",
+    "static/js/main.341b90fa.js"
   ]
 }
