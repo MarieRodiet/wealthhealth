@@ -95,6 +95,7 @@
       svg:hover {
         fill: $sand;
         transform: scale(1.3);
+        cursor: pointer;
       }
       tr:nth-of-type(odd) {
         background: lighten($light_blue, 20%);

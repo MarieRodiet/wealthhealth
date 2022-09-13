@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEmployee } from '../features/employeesListSlice';
 import Modal from '../components/Modal';
-import { states, departments } from '../mock/mockedData';
+import { states, departments } from '../data/mockedData';
 import { useForm } from 'react-hook-form';
 import Calendar from '../components/Calendar';
 
@@ -60,8 +60,18 @@ export default function Form() {
           />
         </div>
 
-        <Calendar currentDate={currentDate} setValue={setValue} dateType={'BirthDate'} />
-        <Calendar currentDate={currentDate} setValue={setValue} dateType={'StartDate'} />
+        <Calendar
+          currentDate={currentDate}
+          setValue={setValue}
+          label={'BirthDate'}
+          name="birthdate"
+        />
+        <Calendar
+          currentDate={currentDate}
+          setValue={setValue}
+          label={'StartDate'}
+          name="startdate"
+        />
 
         <label className="hide" htmlFor="Department">
           Department

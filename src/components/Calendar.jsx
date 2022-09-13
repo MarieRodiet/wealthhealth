@@ -6,7 +6,7 @@ import { PropTypes } from 'prop-types';
 export function addZero(num) {
   return num > 9 ? num : '0' + num;
 }
-export default function Calendar({ currentDate, setValue, dateType }) {
+export default function Calendar({ currentDate, setValue, label, name }) {
   const [showCalendar, setShowCalendar] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date());
 
@@ -17,9 +17,7 @@ export default function Calendar({ currentDate, setValue, dateType }) {
   return (
     <div className="calendar">
       <div className="calendar-container">
-        <label htmlFor={dateType === 'BirthDate' ? 'date-of-birth' : 'starting date'}>
-          {dateType === 'BirthDate' ? 'Date of Birth' : ' Start Date'}
-        </label>
+        <label htmlFor={name}>{label ? label : ''}</label>
         <input
           readOnly
           value={
@@ -30,7 +28,7 @@ export default function Calendar({ currentDate, setValue, dateType }) {
             selectedDate?.getFullYear()
           }
           className="calendar-container-input"
-          id={dateType === 'BirthDate' ? 'date-of-birth' : 'starting date'}
+          id={name}
           type="text"
         />
         <CalendarSvg
@@ -48,12 +46,7 @@ export default function Calendar({ currentDate, setValue, dateType }) {
           }}
           onSelect={(e) => {
             setSelectedDate(e);
-            setValue(dateType, e.toLocaleDateString());
-            // {
-            //   dateType === 'BirthDate'
-            //     ? setValue('BirthDate', e.toLocaleDateString())
-            //     : setValue('StartDate', e.toLocaleDateString());
-            // }
+            setValue(name, e.toLocaleDateString());
           }}
         />
       </div>
@@ -64,5 +57,6 @@ export default function Calendar({ currentDate, setValue, dateType }) {
 Calendar.propTypes = {
   currentDate: PropTypes.string,
   setValue: PropTypes.func,
-  dateType: PropTypes.string
+  label: PropTypes.string,
+  name: PropTypes.string.isRequired
 };
