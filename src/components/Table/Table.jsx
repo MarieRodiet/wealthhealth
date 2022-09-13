@@ -1,23 +1,7 @@
 import { PropTypes } from 'prop-types';
-import { useState, useEffect } from 'react';
 import { ReactComponent as ArrowSvg } from '../../assets/up-down-solid.svg';
-import { SortList } from './Sort.js';
 
-export default function TableComponent({ data, columns }) {
-  const [list, setList] = useState(data);
-  const [isASC, setASC] = useState(true);
-  const [key, setKey] = useState('');
-
-  const handleSort = (key) => {
-    setASC(!isASC);
-    setKey(key);
-  };
-
-  useEffect(() => {
-    const sortedList = SortList(list, key, isASC);
-    setList(sortedList);
-  }, [key, isASC, list, data]);
-
+export default function TableComponent({ list, columns, handleSort }) {
   return (
     <div>
       <table className="listContainer-content-table">
@@ -48,6 +32,7 @@ export default function TableComponent({ data, columns }) {
 }
 
 TableComponent.propTypes = {
-  data: PropTypes.array,
-  columns: PropTypes.array
+  list: PropTypes.array,
+  columns: PropTypes.array,
+  handleSort: PropTypes.func
 };

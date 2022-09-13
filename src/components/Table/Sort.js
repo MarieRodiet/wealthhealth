@@ -24,11 +24,13 @@ export function SortList(list, key, order) {
 export function SearchList(list, inputSearch) {
   const result = [];
   list.map((el) => {
+    let match = false;
     Object.keys(el).map((key) => {
-      if (el[key].includes(inputSearch)) {
-        result.push(el);
-      }
+      if (el[key].includes(inputSearch)) match = true;
     });
+    if (match) {
+      result.push(el);
+    }
   });
 
   return result;

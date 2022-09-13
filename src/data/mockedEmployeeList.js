@@ -15,7 +15,7 @@ export const mockedList = [
     LastName: 'Bertrand',
     BirthDate: '07/08/1959',
     StartDate: '01/09/2020',
-    Street: 'Hello',
+    Street: 'A Great Road',
     City: 'El Paso',
     State: 'TX',
     Zipcode: '9876',
@@ -42,6 +42,28 @@ export const mockedList = [
     State: 'WA',
     Zipcode: '0000',
     Department: 'Consulting'
+  },
+  {
+    FirstName: 'Jacques',
+    LastName: 'Thomas',
+    BirthDate: '02/08/1981',
+    StartDate: '07/10/1998',
+    Street: '10 Grande Rue',
+    City: 'Roseburg',
+    State: 'OR',
+    Zipcode: '07771',
+    Department: 'Sales'
+  },
+  {
+    FirstName: 'Paco',
+    LastName: 'Weiss',
+    BirthDate: '02/11/1999',
+    StartDate: '02/01/2019',
+    Street: 'Avenue Magenta',
+    City: 'Springfield',
+    State: 'MN',
+    Zipcode: '92045',
+    Department: 'Engineering'
   }
 ];
 
