@@ -7,8 +7,9 @@ import { SearchList, SortList } from '../components/Table/Sort';
 import { employeesState } from '../features/employeesListSlice';
 import { mockedList, columns } from '../data/mockedEmployeeList';
 
-export default function EmployeeList() {
+export default function List() {
   const { employeesList } = useSelector(employeesState);
+  console.log(employeesList);
   const [list, setList] = useState(mockedList);
   const [inputSearch, setInputSearch] = useState('');
   const [isASC, setASC] = useState(true);
@@ -38,15 +39,19 @@ export default function EmployeeList() {
 
   return (
     <div className="listContainer">
-      {employeesList ? (
-        <div className="listContainer-content">
-          <h1>Employees</h1>
-          <Search handleSearch={handleSearch} />
-          <Table data={list} columns={columns} handleSort={handleSort} />
-        </div>
-      ) : (
-        <h1 className="listContainer-noEmployeesMsg">There are no employees registered</h1>
-      )}
+      <div className="listContainer-content">
+        <h1>Employees</h1>
+        <Search handleSearch={handleSearch} />
+        {list.length === 0 ? (
+          <div className="noData">
+            <span className="noData-content">No result!</span>
+          </div>
+        ) : (
+          <div>
+            <Table data={list} columns={columns} handleSort={handleSort} />
+          </div>
+        )}
+      </div>
       <Link className="listContainer-link" to="/">
         Go Back
       </Link>

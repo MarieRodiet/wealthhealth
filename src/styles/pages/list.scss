@@ -41,37 +41,22 @@
       font-size: 2.4em;
       padding-bottom: 20px;
     }
-    &-search {
-      margin-bottom: 30px;
-      background-color: white;
-      opacity: 85%;
-      border-radius: 3px;
-      padding: 10px;
+    .noData {
+      height: 100%;
+      width: 100%;
       display: flex;
-      justify-content: space-between;
-      width: 300px;
-      input {
-        padding: 5px;
-        border: 2px $light_blue solid;
-      }
-      input:focus {
-        outline: none !important;
-        box-shadow: 0 0 10px $light_blue;
-        border-color: 2px $light_blue solid;
-      }
-      button {
-        background-color: darken($light_blue, 10%);
-        border: none;
-        padding: 5px 10px;
-        border-radius: 3px;
-        margin: 0 10px;
-        cursor: pointer;
-        color: white;
-        font-weight: 600;
-      }
-      button:hover {
-        background-color: darken($light_blue, 10%);
-        transform: scale(1.07);
+      align-items: center;
+
+      &-content {
+        border-radius: 1px;
+        background-color: white;
+        opacity: 85%;
+        color: $dark;
+        font-family: $secondary_font;
+        font-size: 1em;
+        display: flex;
+        align-items: center;
+        padding: 15px 25px;
       }
     }
   }

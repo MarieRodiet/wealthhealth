@@ -5,13 +5,12 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.5",
+    "jest": "^27.5.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.34.2",
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
-    "react-select-date": "^0.1.1",
     "react-table": "^7.8.0",
     "sass": "^1.54.0"
   },

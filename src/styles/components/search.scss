@@ -1,0 +1,36 @@
+.search {
+  margin-bottom: 30px;
+  background-color: white;
+  opacity: 85%;
+  border-radius: 3px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+  label {
+    display: none;
+  }
+  input {
+    padding: 5px;
+    border: 2px $light_blue solid;
+  }
+  input:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px $light_blue;
+    border-color: 2px $light_blue solid;
+  }
+  button {
+    background-color: darken($light_blue, 10%);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 0 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+  }
+  button:hover {
+    background-color: darken($light_blue, 10%);
+    transform: scale(1.07);
+  }
+}

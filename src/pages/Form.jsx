@@ -5,20 +5,20 @@ import { addEmployee } from '../features/employeesListSlice';
 import Modal from '../components/Modal';
 import { states, departments } from '../data/mockedData';
 import { useForm } from 'react-hook-form';
-import Calendar from '../components/Calendar';
+// import Calendar from '../components/Calendar';
 
 export default function Form() {
   const dispatch = useDispatch();
   const [isCreated, setIsCreated] = useState(false);
-  const { register, handleSubmit, setValue } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
     dispatch(addEmployee(data));
     setIsCreated(true);
   };
 
-  const currentDate =
-    new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
+  //   const currentDate =
+  //     new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate();
 
   return (
     <main className="form-container">
@@ -60,7 +60,7 @@ export default function Form() {
           />
         </div>
 
-        <Calendar
+        {/* <Calendar
           currentDate={currentDate}
           setValue={setValue}
           label={'BirthDate'}
@@ -71,7 +71,7 @@ export default function Form() {
           setValue={setValue}
           label={'StartDate'}
           name="startdate"
-        />
+        /> */}
 
         <label className="hide" htmlFor="Department">
           Department
