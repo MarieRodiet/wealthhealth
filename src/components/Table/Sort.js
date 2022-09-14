@@ -26,7 +26,8 @@ export function SearchList(list, inputSearch) {
   list.map((el) => {
     let match = false;
     Object.keys(el).map((key) => {
-      if (el[key].includes(inputSearch)) match = true;
+      const value = el[key].toLowerCase();
+      if (value.includes(inputSearch)) match = true;
     });
     if (match) {
       result.push(el);

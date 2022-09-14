@@ -1,7 +1,9 @@
-@import './globals';
+@import './utils/globals';
 @import './utils/mixins';
 @import './utils/variables';
-@import './employeeList';
-@import './calendar';
-@import './form';
-@import './modal';
+@import './pages/list.scss';
+@import './components/calendar';
+@import './pages/form.scss';
+@import './components/modal.scss';
+@import './components/table.scss';
+@import './pages/error.scss';

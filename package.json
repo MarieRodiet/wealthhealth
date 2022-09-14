@@ -1,5 +1,5 @@
 {
-  "name": "wealthhealth-front",
+  "name": "wealthhealth",
   "version": "0.1.0",
   "homepage": "https://marierodiet.github.io/wealthhealth",
   "private": true,
@@ -24,7 +24,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
+    "format": "prettier --write './**/*.{js,jsx,tsx,css,md,json}' --config ./.prettierrc"
   },
   "eslintConfig": {
     "extends": [

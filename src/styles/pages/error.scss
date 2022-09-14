@@ -1,0 +1,20 @@
+.error {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    border-radius: 3px;
+    background-color: white;
+    color: $dark;
+    font-family: $secondary_font;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    padding: 30px 40px;
+  }
+}
