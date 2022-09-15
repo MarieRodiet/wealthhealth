@@ -7,6 +7,7 @@
     "@reduxjs/toolkit": "^1.8.5",
     "jest": "^27.5.1",
     "react": "^18.1.0",
+    "react-datepicker": "^4.8.0",
     "react-dom": "^18.1.0",
     "react-hook-form": "^7.34.2",
     "react-redux": "^8.0.2",
