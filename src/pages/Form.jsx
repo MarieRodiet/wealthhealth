@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEmployee } from '../features/employeesListSlice';
-import Modal from '../components/Modal';
+import Modal from '@mariemoore/modal-react-component-library-with-vite';
 import { states, departments } from '../data/mockedData';
 import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
