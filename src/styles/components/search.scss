@@ -20,17 +20,6 @@
     border-color: 2px $light_blue solid;
   }
   button {
-    background-color: darken($light_blue, 10%);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    margin: 0 10px;
-    cursor: pointer;
-    color: white;
-    font-weight: 600;
-  }
-  button:hover {
-    background-color: darken($light_blue, 10%);
-    transform: scale(1.07);
+    @include button($light_blue, white);
   }
 }

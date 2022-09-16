@@ -34,7 +34,21 @@
     background: lighten($light_blue, 20%);
   }
 }
-
+.table-container-pagination {
+  display: flex;
+  width: 130px;
+  margin: 10px;
+  &-btn {
+    @include button($sand, white);
+  }
+  &-currentPage {
+    font-weight: 200;
+    font-size: 1.4em;
+    background-color: white;
+    padding: 3px 9px;
+    border-radius: 3px;
+  }
+}
 @media only screen and (min-width: 1023px) {
   .table {
     td,

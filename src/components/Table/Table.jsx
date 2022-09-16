@@ -1,9 +1,9 @@
 import { PropTypes } from 'prop-types';
 import { ReactComponent as ArrowSvg } from '../../assets/up-down-solid.svg';
 
-export default function TableComponent({ data, columns, handleSort }) {
+export default function Table({ data, columns, handleSort }) {
   return (
-    <div>
+    <div className="table-container">
       <table className="table">
         <thead className="table-header">
           <tr>
@@ -31,7 +31,7 @@ export default function TableComponent({ data, columns, handleSort }) {
   );
 }
 
-TableComponent.propTypes = {
+Table.propTypes = {
   data: PropTypes.array,
   columns: PropTypes.array,
   handleSort: PropTypes.func

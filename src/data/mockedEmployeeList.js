@@ -29,7 +29,7 @@ export const mockedList = [
     Street: 'Rue de la paix',
     City: 'Orlando',
     State: 'AZ',
-    Zipcode: '0000',
+    Zipcode: '0578',
     Department: 'Consulting'
   },
   {
@@ -50,7 +50,7 @@ export const mockedList = [
     StartDate: '07/10/1998',
     Street: '10 Grande Rue',
     City: 'Roseburg',
-    State: 'OR',
+    State: 'CA',
     Zipcode: '07771',
     Department: 'Sales'
   },
@@ -63,6 +63,72 @@ export const mockedList = [
     City: 'Springfield',
     State: 'MN',
     Zipcode: '92045',
+    Department: 'Engineering'
+  },
+  {
+    FirstName: 'Kathlyn',
+    LastName: 'Willians',
+    BirthDate: '04/03/1982',
+    StartDate: '05/09/1997',
+    Street: '254 Main Lane',
+    City: 'Redmon',
+    State: 'FL',
+    Zipcode: '09324',
+    Department: 'Marketing'
+  },
+  {
+    FirstName: 'Shanna',
+    LastName: 'Boogards',
+    BirthDate: '29/01/1962',
+    StartDate: '29/07/2001',
+    Street: 'Pretty Court',
+    City: 'Ben',
+    State: 'ID',
+    Zipcode: '12048',
+    Department: 'Sales'
+  },
+  {
+    FirstName: 'Kaisy',
+    LastName: 'Jon',
+    BirthDate: '22/08/1948',
+    StartDate: '08/10/1990',
+    Street: 'Fillmore Street',
+    City: 'Sisters',
+    State: 'OR',
+    Zipcode: '97402',
+    Department: 'Sales'
+  },
+  {
+    FirstName: 'Moose',
+    LastName: 'Forest',
+    BirthDate: '12/10/1983',
+    StartDate: '13/01/2014',
+    Street: 'Happy Street',
+    City: 'Plendelton',
+    State: 'NY',
+    Zipcode: '345234',
+    Department: 'Consulting'
+  },
+  {
+    FirstName: 'Jessica',
+    LastName: 'MiddleBridge',
+    BirthDate: '01/11/1978',
+    StartDate: '03/09/2000',
+    Street: 'Salmon Lane',
+    City: 'Burley',
+    State: 'KS',
+    Zipcode: '2452345',
+    Department: 'Sales'
+  },
+  {
+    FirstName: 'Skippy Jon',
+    LastName: 'Jones',
+    BirthDate: '09/10/1988',
+    StartDate: '08/21/2009',
+    Street: 'Avenue Somewhere',
+    City: 'Skinner',
+    State: 'OH',
+    Zipcode: '24624523',
     Department: 'Engineering'
   }
 ];
