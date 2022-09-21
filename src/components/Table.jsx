@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types';
-import { ReactComponent as ArrowSvg } from '../../assets/up-down-solid.svg';
+import { ReactComponent as ArrowSvg } from '../assets/up-down-solid.svg';
 
 export default function Table({ data, columns, handleSort }) {
   return (
@@ -10,7 +10,7 @@ export default function Table({ data, columns, handleSort }) {
             {columns.map((el) => (
               <th key={el}>
                 {el}
-                <ArrowSvg onClick={() => handleSort(el)} />
+                <ArrowSvg className="sort-svg" onClick={() => handleSort(el)} />
               </th>
             ))}
           </tr>

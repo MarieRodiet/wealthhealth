@@ -32,7 +32,7 @@ function SortDateAZ(list, key) {
   });
 }
 
-async function SortDateZA(list, key) {
+function SortDateZA(list, key) {
   return list.sort(function (a, b) {
     return new Date(b[key]) - new Date(a[key]);
   });
@@ -51,4 +51,11 @@ export function SearchList(list, inputSearch) {
     }
   });
   return result;
+}
+
+export function ShowList(data, rowsPerPage, currentPage) {
+  const trimStart = (currentPage - 1) * rowsPerPage;
+  const trimEnd = +trimStart + +rowsPerPage;
+  const newSlice = data.slice(trimStart, trimEnd);
+  return newSlice;
 }
