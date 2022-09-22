@@ -1,5 +1,5 @@
 export function SortList(list, key, order) {
-  if (key === 'StartDate' || key === 'BirthDate') {
+  if (key.toLowerCase().includes('date')) {
     if (order) {
       return SortDateAZ(list, key);
     } else {

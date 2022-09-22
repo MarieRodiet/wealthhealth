@@ -5,7 +5,7 @@ import Search from '../components/Search';
 import Pagination from '../components/Pagination';
 import { SortList, SearchList, ShowList } from '../components/Sort';
 
-export default function DataTable({ data, columns, title }) {
+export default function DataTable({ data, columns, title, sortListFunc = SortList }) {
   const [inputSearch, setInputSearch] = useState('');
   const [list, setList] = useState(data);
   const [isASC, setASC] = useState(true);
@@ -33,14 +33,14 @@ export default function DataTable({ data, columns, title }) {
   }, [inputSearch, rowsPerPage, currentPage]);
 
   useEffect(() => {
-    const sortedList = SortList(data, key, isASC);
+    const sortedList = sortListFunc(data, key, isASC);
     setKey('');
     const newList = ShowList(sortedList, rowsPerPage, currentPage);
     setList(newList);
   }, [key, isASC, rowsPerPage, currentPage]);
 
   function handleNbOfRows(el) {
-    setRowsPerPage(el);
+    setRowsPerPage(parseInt(el));
     const nb = Math.ceil(data.length / el);
     setNbOfPages(nb);
     setCurrentPage(1);
@@ -77,5 +77,6 @@ export default function DataTable({ data, columns, title }) {
 DataTable.propTypes = {
   data: PropTypes.array,
   columns: PropTypes.array,
-  title: PropTypes.string
+  title: PropTypes.string,
+  sortListFunc: PropTypes.func
 };
