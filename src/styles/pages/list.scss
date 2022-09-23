@@ -1,95 +1,48 @@
-.listContainer {
+.list {
+  margin: 40px;
+  width: fit-content;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 350px;
-  padding: 80px 7%;
-  &-noEmployeesMsg {
-    color: $dark;
-    font-family: $secondary_font;
-    padding: 50px 0;
-    text-align: center;
-    font-weight: 400;
-    font-size: 1.5em;
-  }
-  &-link {
-    font-size: 0.9em;
-    font-family: $secondary_font;
-    text-decoration: none;
-    font-weight: 500;
-    background-color: darken($sand, 10%);
-    color: white;
-    border-radius: 2px;
-    margin: 1em 0rem;
-    padding: 1em 1.25rem;
-    box-shadow: inset 0 0 0 0 $dark;
-    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  }
-  &-link:hover {
-    box-shadow: inset 100px 0 0 0 $dark;
-    cursor: pointer;
-  }
-  &-content {
-    width: 100%;
-    padding: 30px 0;
-
-    h1 {
-      color: $dark;
-      font-family: $main_font;
-      font-weight: 600;
-      font-size: 2.4em;
-      padding-bottom: 20px;
-    }
-    .noData {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      align-items: center;
-
-      &-content {
-        border-radius: 1px;
-        background-color: white;
-        opacity: 85%;
-        color: $dark;
-        font-family: $secondary_font;
-        font-size: 1em;
-        display: flex;
-        align-items: center;
-        padding: 15px 25px;
+  align-items: start;
+  .listContainer {
+    padding: 3%;
+    &-content {
+      .table-container {
+        table {
+          .table-header {
+            tr {
+              th {
+                svg {
+                  width: 10px;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
 }
-
-@media only screen and (min-width: 769px) {
-  .listContainer {
-    max-width: 740px;
-  }
+.listContainer-link {
+  font-size: 0.9em;
+  font-family: $secondary_font;
+  text-decoration: none;
+  font-weight: 500;
+  background-color: darken($sand, 10%);
+  color: white;
+  border-radius: 2px;
+  margin: 1em 0rem;
+  padding: 1em 1.25rem;
+  box-shadow: inset 0 0 0 0 $dark;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.listContainer-link:hover {
+  box-shadow: inset 100px 0 0 0 $dark;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 1023px) {
-  .listContainer {
-    max-width: 1100px;
-    &-link {
-      font-size: 1.1em;
-    }
-    &-content {
-      h1 {
-        font-size: 3em;
-      }
-      &-search {
-        button {
-          font-size: 1em;
-        }
-      }
-      &-table {
-        td,
-        th {
-          font-size: 1em;
-          max-width: 120px;
-        }
-      }
-    }
+  .listContainer-link {
+    font-size: 1.1em;
   }
 }
