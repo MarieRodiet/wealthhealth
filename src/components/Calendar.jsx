@@ -19,7 +19,7 @@ export default function Calendar({ setValue, label, name }) {
         }}
         onSelect={(e) => {
           setSelectedDate(e);
-          setValue(name, e.toLocaleDateString());
+          setValue(label, e.toLocaleDateString());
         }}
       />
     </div>

@@ -6,22 +6,15 @@
   align-items: start;
   .listContainer {
     padding: 3%;
-    &-content {
-      .table-container {
-        table {
-          .table-header {
-            tr {
-              th {
-                svg {
-                  width: 10px;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
+}
+
+.table tbody tr .selectedStyle {
+  background-color: darken($light_blue, 30%);
+  color: white;
+}
+.table thead tr svg {
+  width: 11px;
 }
 .listContainer-link {
   font-size: 0.9em;

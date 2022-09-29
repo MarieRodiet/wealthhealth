@@ -134,13 +134,67 @@ export const mockedList = [
 ];
 
 export const columns = [
-  'FirstName',
-  'LastName',
-  'BirthDate',
-  'StartDate',
-  'Street',
-  'City',
-  'State',
-  'Zipcode',
-  'Department'
+  {
+    field: 'FirstName',
+    header: 'Firstname',
+    type: 'string',
+    sortable: true,
+    width: '100'
+  },
+  {
+    field: 'LastName',
+    header: 'Lastname',
+    type: 'string',
+    sortable: true,
+    width: '100'
+  },
+  {
+    field: 'BirthDate',
+    header: 'Birthdate',
+    type: 'date',
+    sortable: true,
+    width: '90'
+  },
+  {
+    field: 'StartDate',
+    header: 'Start Date',
+    type: 'date',
+    sortable: true,
+    width: '100'
+  },
+  {
+    field: 'Street',
+    header: 'Street',
+    type: 'string',
+    sortable: true,
+    width: '200'
+  },
+  {
+    field: 'City',
+    header: 'City',
+    type: 'string',
+    sortable: true,
+    width: '100'
+  },
+  {
+    field: 'State',
+    header: 'State',
+    type: 'string',
+    sortable: false,
+    width: '40'
+  },
+  {
+    field: 'Zipcode',
+    header: 'Zipcode',
+    type: 'string',
+    sortable: true,
+    width: '90'
+  },
+  {
+    field: 'Department',
+    header: 'Department',
+    type: 'string',
+    sortable: true,
+    width: '120'
+  }
 ];

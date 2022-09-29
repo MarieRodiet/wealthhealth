@@ -15,7 +15,7 @@
     "react-router-dom": "^6.3.0",
     "react-table": "^7.8.0",
     "sass": "^1.54.0",
-    "table-react-component-library": "^1.0.2"
+    "table-react-component-library": "^1.0.3"
   },
   "scripts": {
     "predeploy": "npm run build",
