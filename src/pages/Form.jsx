@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addEmployee } from '../features/employeesListSlice';
 import Modal from '@mariemoore/modal-react-component-library-with-vite';
-import { states, departments } from '../data/mockedData';
+import { states, departments } from '../data/mockedFormData';
 import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
 import Calendar from '../components/Calendar';
