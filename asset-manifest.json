@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/wealthhealth/static/css/main.b78a0f8f.css",
-    "main.js": "/wealthhealth/static/js/main.3440629a.js",
+    "main.js": "/wealthhealth/static/js/main.0899d40c.js",
     "static/media/kyle-sudu-PVKn9G3XICQ-unsplash.jpg": "/wealthhealth/static/media/kyle-sudu-PVKn9G3XICQ-unsplash.e88a160c89a59c9c8929.jpg",
     "index.html": "/wealthhealth/index.html",
     "main.b78a0f8f.css.map": "/wealthhealth/static/css/main.b78a0f8f.css.map",
-    "main.3440629a.js.map": "/wealthhealth/static/js/main.3440629a.js.map"
+    "main.0899d40c.js.map": "/wealthhealth/static/js/main.0899d40c.js.map"
   },
   "entrypoints": [
     "static/css/main.b78a0f8f.css",
-    "static/js/main.3440629a.js"
+    "static/js/main.0899d40c.js"
   ]
 }
