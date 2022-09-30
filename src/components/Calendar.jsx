@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 
 export default function Calendar({ setValue, label, name }) {
   const [selectedDate, setSelectedDate] = useState(new Date());
-
+  setValue(label, selectedDate.toLocaleDateString());
   return (
     <div className="calendar">
       <label className="calendar-label" htmlFor={name}>

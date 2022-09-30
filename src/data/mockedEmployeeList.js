@@ -139,28 +139,28 @@ export const columns = [
     header: 'Firstname',
     type: 'string',
     sortable: true,
-    width: '100'
+    width: '110'
   },
   {
     field: 'LastName',
     header: 'Lastname',
     type: 'string',
     sortable: true,
-    width: '100'
+    width: '110'
   },
   {
     field: 'BirthDate',
     header: 'Birthdate',
     type: 'date',
     sortable: true,
-    width: '90'
+    width: '110'
   },
   {
     field: 'StartDate',
     header: 'Start Date',
     type: 'date',
     sortable: true,
-    width: '100'
+    width: '110'
   },
   {
     field: 'Street',
@@ -195,6 +195,6 @@ export const columns = [
     header: 'Department',
     type: 'string',
     sortable: true,
-    width: '120'
+    width: '130'
   }
 ];
