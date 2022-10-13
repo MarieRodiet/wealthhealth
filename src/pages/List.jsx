@@ -7,7 +7,6 @@ import { employeesState } from '../features/employeesListSlice';
 
 export default function List() {
   const { employeesList } = useSelector(employeesState);
-
   function showSelection(selection) {
     console.log(selection);
   }
