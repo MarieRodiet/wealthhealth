@@ -5,11 +5,22 @@ import './../../node_modules/table-react-component-library/dist/style.css';
 import { useSelector } from 'react-redux';
 import { employeesState } from '../features/employeesListSlice';
 
+/**
+ *
+ * @returns Link to the form + DataTable including:
+ * Pagination
+ * Search
+ * Table
+ *
+ * @param {array} data - The data to be displayed
+ * @param {array} columns - The column objects
+ * @param {string} title - The title
+ * @param {string} theme - The theme - light or dark
+ * @param {boolean} unableSelection - Unabling the selection of rows and returning their values
+ */
 export default function List() {
   const { employeesList } = useSelector(employeesState);
-  function showSelection(selection) {
-    console.log(selection);
-  }
+
   return (
     <div className="list">
       <DataTable
@@ -17,7 +28,7 @@ export default function List() {
         columns={columns}
         title="Employees"
         theme="light"
-        getSelection={showSelection}
+        unableSelection={false}
       />
 
       <Link className="listContainer-link" to="/">

@@ -7,6 +7,12 @@ import { states, departments } from '../data/mockedFormData';
 import { useForm } from 'react-hook-form';
 import { Navigate } from 'react-router-dom';
 
+/**
+ *
+ * @returns data object from the form to the Redux store
+ * Shows modal
+ * Once modal clicked, it navigates to the List page
+ */
 export default function Form() {
   const Modal = lazy(() => import('@mariemoore/modal-react-component-library-with-vite'));
   const Calendar = lazy(() => import('../components/Calendar'));
